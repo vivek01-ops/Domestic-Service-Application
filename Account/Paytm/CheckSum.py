@@ -2,7 +2,6 @@ import base64
 import string
 import random
 import hashlib
-
 from Crypto.Cipher import AES
 
 

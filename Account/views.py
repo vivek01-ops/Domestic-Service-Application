@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.core.mail import send_mail
 from DOMESTIC import settings 
 # from .models import UserDetails , Empdetails , Login ,Sigup
+from .models import Empdetails 
 from .models import Empdetails ,Signup,Bookings 
 from Services.models import Cleaning,Plumbing,Carpenter,Electics
 from django.contrib.auth.decorators import login_required
@@ -198,7 +199,7 @@ def signupemp(request):
             error_msg="Email is already registered."
         elif password != repass:
             error_msg = "Both Password field should be same."
-        elif Empdetails.objects.filter(username = username):
+        elif Empdetails.objects.filter(username = username):    
             error_msg="This User Name is already taken from another Employee. Please choose another."
         else:
             # print('Original Password:', request.POST['password'])
